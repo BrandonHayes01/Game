@@ -1,10 +1,17 @@
 
 public abstract class Spell {
 		
+	private String name; 
 	int manaCost;
-	
-	
 	int mana = 100;
+	
+	public Spell(String name) {
+		this.name = name;
+	}
+	
+	public String getName() {
+		return name;
+	}
 	
 	public boolean takeMana() {
 		if (mana < 0) {

@@ -5,10 +5,11 @@ public class Fireball extends Spell implements targetLocation{
 	int mana;
 	int damage;
 	
-	public Fireball(int a, int b, String c) {
+	public Fireball(int a, int b) {
+		super("Fireball");
 		mana = a;
 		damage = b;
-		target = c;
+		//target = c;
 	}
 
 	public void Check(String target) {

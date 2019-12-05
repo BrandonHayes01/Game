@@ -5,10 +5,11 @@ public class Healing extends Spell implements targetCreature {
 	int mana;
 	int healAmount;
 	
-	public Healing(int a, int b, String c) {
+	public Healing(int a, int b) {
+		super("Healing");
 		mana = a;
 		healAmount = b;
-		target = c;
+		//target = c;
 	}
 
 	public void Check(String target) {

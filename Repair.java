@@ -4,9 +4,10 @@ public class Repair extends Spell implements targetItem {
 	String target;
 	int mana;
 	
-	public Repair(int a, String b) {
+	public Repair(int a) {
+		super("Repair");
 		mana = a;
-		target = b;
+		//target = b;
 	}
 
 	public void Check(String target) {
