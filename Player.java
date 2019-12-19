@@ -11,8 +11,7 @@ public class Player extends Creature {
 	int health;
 	
 	public Player(int a) {
-		super("Player");
-		health = a;
+		super("Player", a);
 	}
 	
 }

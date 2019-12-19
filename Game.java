@@ -1,4 +1,3 @@
-import java.util.*;
 public class Game{
 	
 	public static void main (String[] args){
@@ -27,34 +26,56 @@ public class Game{
     System.out.println("Which spell would you like to select?");
     System.out.println("");
     sb.printSpellbook();
-
-    Object input = Utilities.userInput();
-    int spellId = Integer.valueOf((String) input);
+    int i = 0;
+    
+    do {
+    Object input1 = Utilities.userInput();
+    int spellId = Integer.valueOf((String) input1);
     Spell spell = sb.spellReturn(spellId);
     System.out.println(spell.getName());
     if (spell.getName() == "Fireball") {
-    	System.out.println("Select a location");
+    	System.out.println("");
+    	System.out.println("Select a location: ");
+    	System.out.println("");
+    	cl.printCreatures();
+    	Object input2 = Utilities.userInput();
+    	int creatureId = Integer.valueOf((String) input2);
+    	Creature creature = cl.creatureReturn(creatureId);
+    	System.out.println("You cast " + spell.getName() + " on " + creature.getName() + ".");
+    	i++;
+    	if (creature.getName() == "Dragon") {
+    		System.out.println("");
+    		System.out.println("You have slain the Dragon and won the game!");
+    	}
     }
     else if (spell.getName() == "Repair") {
     	System.out.println("");
-    	System.out.println("Select a tool to repair");
+    	System.out.println("Select a tool to repair: ");
     	System.out.println("");
     	il.printItems();
-    	Object input1 = Utilities.userInput();
-    	int itemId = Integer.valueOf((String) input1);
+    	Object input2 = Utilities.userInput();
+    	int itemId = Integer.valueOf((String) input2);
     	Item item = il.itemReturn(itemId);
     	item.Durability = item.Durability + 1;
-    	System.out.println("You cast " + spell + " on " + item + ". The durability is now " + item.Durability + ".");
+    	System.out.println("You cast " + spell.getName() + " on " + item.getName() + ". The durability is now " + item.Durability + ".");
+    	i++;
     }
     else if (spell.getName() == "Healing") {
     	System.out.println("");
-    	System.out.println("Select a creature");
+    	System.out.println("Select a creature: ");
     	System.out.println("");
     	cl.printCreatures();
-    	
+    	Object input2 = Utilities.userInput();
+    	int creatureId = Integer.valueOf((String) input2);
+    	Creature creature = cl.creatureReturn(creatureId);
+    	creature.health = creature.health + 25;
+    	System.out.println("You cast " + spell.getName() + " on " + creature.getName() + ". The health is now " + creature.health + ".");
+    	i++;
     }
     else {
     	System.out.println("Error!!!!!!!!!!!!!!!!!");
     }
-	}    
+	}
+    while (i != 3);
+	}
 }

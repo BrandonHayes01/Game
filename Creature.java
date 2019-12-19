@@ -2,10 +2,11 @@
 public abstract class Creature {
 
 	private String name;
-	int health = 100;
+	int health;
 	
-	public Creature(String name) {
+	public Creature(String name, int a) {
 		this.name = name;
+		this.health = a;
 	}
 	
 	public String getName() {
